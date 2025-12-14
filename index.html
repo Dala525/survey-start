@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Starting survey…</title>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
 </head>
 <body>
-  Redirecting to survey…
+  Redirecting to your surveys…
 
   <form id="paForm" method="POST"
     action="https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM">
 
-    <input type="hidden" name="email" id="email" />
+    <input type="hidden" name="email" id="email">
   </form>
 
   <script>
@@ -18,7 +18,7 @@
     const email = params.get("email");
 
     if (!email) {
-      document.body.innerText = "Missing email parameter";
+      document.body.innerHTML = "Missing email parameter";
     } else {
       document.getElementById("email").value = email;
       document.getElementById("paForm").submit();
