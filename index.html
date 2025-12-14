@@ -4,17 +4,9 @@ const email = new URLSearchParams(window.location.search).get("email");
 fetch("PASTE_YOUR_POWER_AUTOMATE_URL_HERE", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email: email })
+  body: JSON.stringify({ email })
 })
-.then(res => res.json())
-.then(data => {
-  if (data.redirectUrl) {
-    window.location.href = data.redirectUrl;
-  } else {
-    document.body.innerText = "No pending surveys.";
-  }
-})
-.catch(err => {
-  document.body.innerText = "Error starting survey.";
-});
+.then(r => r.json())
+.then(d => window.location.href = d.redirectUrl)
+.catch(() => document.body.innerText = "No pending surveys");
 </script>
