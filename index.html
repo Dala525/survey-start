@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-Redirecting…
+Starting…
 
 <script>
 const email = new URLSearchParams(window.location.search).get("email");
 
-fetch("YOUR_POWER_AUTOMATE_URL_HERE", {
+fetch("PASTE_YOUR_POWER_AUTOMATE_URL_HERE", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email })
+  body: JSON.stringify({ email: email })
 });
 </script>
 
