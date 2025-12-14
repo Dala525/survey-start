@@ -14,7 +14,7 @@
   if (!email) {
     document.body.innerHTML = "<p>Error: missing email.</p>";
   } else {
-    fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/766fbabd29db47b4ad2c64c43234feaf/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3wC-JzZundjnl8g4AqONwvfhIp2mFLrE4L4fayn9cCo", {
+    fetch("PASTE_POWER_AUTOMATE_URL_HERE", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ EvaluatorEmail: email })
