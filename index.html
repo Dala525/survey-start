@@ -6,7 +6,7 @@ Starting…
 <script>
 const email = new URLSearchParams(window.location.search).get("email");
 
-fetch("PASTE_YOUR_POWER_AUTOMATE_URL_HERE", {
+fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ email: email })
