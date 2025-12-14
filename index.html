@@ -5,24 +5,25 @@
   <title>Redirecting…</title>
 </head>
 <body>
-  Redirecting to your surveys…
+Redirecting to your surveys…
 
-  <form id="paForm" method="POST"
-    action="https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM">
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get("email");
 
-    <input type="hidden" name="email" id="email">
-  </form>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get("email");
-
-    if (!email) {
-      document.body.innerHTML = "Missing email parameter";
-    } else {
-      document.getElementById("email").value = email;
-      document.getElementById("paForm").submit();
-    }
-  </script>
+  if (!email) {
+    document.body.innerHTML = "Missing email parameter";
+  } else {
+    fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email
+      })
+    });
+  }
+</script>
 </body>
 </html>
