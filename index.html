@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting…</title>
-</head>
 <body>
-Redirecting to your surveys…
+Redirecting…
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const email = params.get("email");
+const email = new URLSearchParams(window.location.search).get("email");
 
-  if (!email) {
-    document.body.innerHTML = "Missing email parameter";
-  } else {
-    fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email
-      })
-    });
-  }
+fetch("YOUR_POWER_AUTOMATE_URL_HERE", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email })
+});
 </script>
+
 </body>
 </html>
