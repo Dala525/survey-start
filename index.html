@@ -7,7 +7,7 @@ Loading next survey…
 const email = new URLSearchParams(window.location.search).get("email");
 
 if (!email) {
-  document.body.innerText = "Missing email";
+  document.body.innerText = "Missing email.";
   throw new Error("Missing email");
 }
 
