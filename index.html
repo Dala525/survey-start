@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-Loading next survey…
+Thank you for your patiance, your next survey is loading…
 
 <script>
 const email = new URLSearchParams(window.location.search).get("email");
@@ -19,7 +19,7 @@ fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerpla
 .then(res => res.json())
 .then(data => {
   if (!data.redirectUrl) {
-    document.body.innerText = "No pending surveys.";
+    document.body.innerText = "Thank you for your time, no more pending surveys.";
     return;
   }
   window.location.href = data.redirectUrl;
