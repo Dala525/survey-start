@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
-Starting…
-
 <script>
 const email = new URLSearchParams(window.location.search).get("email");
 
-if (!email) {
-  document.body.innerText = "Missing email";
-  throw new Error("Missing email");
-}
-
-fetch("PASTE_POWER_AUTOMATE_TRIGGER_URL_HERE", {
+fetch("https://defaultbd7eddbe7b5442d7a1f0f8166de666.30.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f11dd3e376cb421ea0ff617b5203e5a4/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0Exu81PGKER_jt6YS4YSfxcVlTzA3Kac260GpiiI1vM", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ email })
 })
 .then(r => r.json())
-.then(d => {
-  if (!d.redirectUrl) throw new Error("No redirectUrl");
-  window.location.href = d.redirectUrl;
-})
-.catch(() => {
-  document.body.innerText = "Error connecting to system.";
-});
+.then(d => window.location.href = d.redirectUrl)
+.catch(() => document.body.innerText = "No pending surveys");
 </script>
-
-</body>
-</html>
